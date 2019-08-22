@@ -7,17 +7,21 @@ global.document = {};
 describe('StringBinding', function() {
   beforeEach(function() {
     // Mock an HTML text input or textarea
-    var element = this.element = {
+    var element = {
       value: '',
       selectionStart: 0,
       selectionEnd: 0,
       selectionDirection: 'none'
     };
+
+    this.element = element;
+
     element.setSelectionRange = function(selectionStart, selectionEnd, selectionDirection) {
       element.selectionStart = selectionStart;
       element.selectionEnd = selectionEnd;
       element.selectionDirection = selectionDirection || 'none';
     };
+
     document.activeElement = element;
 
     this.backend = new Backend();

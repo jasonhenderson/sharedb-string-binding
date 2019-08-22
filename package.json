@@ -12,13 +12,13 @@
     "test-cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha && npm run lint"
   },
   "devDependencies": {
-    "coveralls": "^2.11.9",
-    "eslint": "^2.13.0",
-    "eslint-config-xo": "^0.14.1",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.2.1",
+    "eslint-config-xo": "^0.26.0",
     "expect.js": "^0.3.1",
     "istanbul": "^0.4.3",
-    "mocha": "^2.5.3",
-    "sharedb": "^1.0.0-beta"
+    "mocha": "^5.2.0",
+    "sharedb": "^1.0.0-beta.23"
   },
   "directories": {
     "test": "test"
@@ -26,6 +26,6 @@
   "author": "Nate Smith",
   "license": "MIT",
   "dependencies": {
-    "text-diff-binding": "^1.0.0"
+    "text-diff-binding": "^1.1.0"
   }
 }

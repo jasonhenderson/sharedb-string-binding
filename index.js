@@ -9,6 +9,7 @@ function StringBinding(element, doc, path) {
   this._opListener = null;
   this._inputListener = null;
 }
+
 StringBinding.prototype = Object.create(TextDiffBinding.prototype);
 StringBinding.prototype.constructor = StringBinding;
 
@@ -28,6 +29,7 @@ StringBinding.prototype.attachElement = function() {
   this._inputListener = function() {
     binding.onInput();
   };
+
   this.element.addEventListener('input', this._inputListener, false);
 };
 
@@ -40,6 +42,7 @@ StringBinding.prototype.attachDoc = function() {
   this._opListener = function(op, source) {
     binding._onOp(op, source);
   };
+
   this.doc.on('op', this._opListener);
 };
 
@@ -53,6 +56,7 @@ StringBinding.prototype._onOp = function(op, source) {
   if (op.length > 1) {
     throw new Error('Op with multiple components emitted');
   }
+
   var component = op[0];
   if (isSubpath(this.path, component.p)) {
     this._parseInsertOp(component);
@@ -86,6 +90,7 @@ StringBinding.prototype._get = function() {
     var segment = this.path[i];
     value = value[segment];
   }
+
   return value;
 };
 
@@ -105,5 +110,6 @@ function isSubpath(path, testPath) {
   for (var i = 0; i < path.length; i++) {
     if (testPath[i] !== path[i]) return false;
   }
+
   return true;
 }
